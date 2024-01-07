@@ -1,38 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Long+Cang&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla&display=swap");
 .App {
+  text-align: center;
+  font-family: "Karla";
+}
+
+/** Navbar Styles START*/
+.NavbarLeftNav {
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+
+.NavbarLogo {
+  font-size: large;
+  color: white;
+  font-family: "Long Cang";
+}
+
+.NavbarRightNav {
+  width: 50%;
+  height: 100%;
+  align-items: center;
+  justify-content: end;
+  gap: 12px;
+}
+
+.NavbarLanguageImageDE {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+}
+
+.NavbarLanguageImageEN {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+}
+
+/** Fade In Animation for Language Image START*/
+.inactiveLanguage {
+  filter: grayscale(0.75);
+  transition: filter 0.5s ease;
+}
+
+.activeLanguage {
+  filter: grayscale(0);
+  transition: filter 0.5s ease;
+}
+
+/** Fade In Animation for Language Image END */
+
+/** Navbar Styles END*/
+
+/** FlashCard Styles START*/
+
+.FlashCardCard {
+  max-width: 90%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.CardFlexWrapper {
+  width: 100%;
+  font-family: "Karla";
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.CardQuestion {
+  font-size: 1.5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.CardAnswer {
+  font-size: 1.2rem;
+}
+
+.CardCode {
+  padding: 8px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+.CardButtonWrapper {
+  width: 100%;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/** Answer Animation Fade and Slide In START*/
+.text-fade {
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+  transform: translateY(-20px);
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.text-visible {
+  opacity: 1;
+  height: auto;
+  transform: translateY(0);
 }
+/** Answer Animation END*/
+
+/** FlashCard Styles START*/

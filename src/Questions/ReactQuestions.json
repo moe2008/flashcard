@@ -1,0 +1,307 @@
+[
+  {
+    "frage": "Was ist React und warum wird es verwendet?",
+    "antwort": "React ist eine JavaScript-Bibliothek für den Bau von Benutzeroberflächen, die von Facebook entwickelt wurde. Sie wird verwendet, um effiziente und interaktive UIs in Web- und Mobile-Anwendungen zu erstellen. Sie zeichnet sich durch ihre Komponentenstruktur und schnelle Renderleistung aus.",
+    "beispielcode": "import React from 'react';\n\nfunction App() {\n  return <h1>Hello, World!</h1>;\n}\n\nexport default App;"
+  },
+  {
+    "frage": "Erkläre den Unterschied zwischen einem Class- und einem Functional-Component in React.",
+    "antwort": "Class-Components sind ES6-Klassen, die React-Komponenten erweitern und Features wie Lifecycle-Methoden und State-Management bieten. Functional-Components sind einfache JavaScript-Funktionen, die Props akzeptieren und JSX zurückgeben. Mit der Einführung von Hooks können Functional-Components nun auch State und andere React-Features verwenden.",
+    "beispielcode": "class MyClassComponent extends React.Component {\n  render() {\n    return <h1>Hello, world!</h1>;\n  }\n}\n\nfunction MyFunctionalComponent() {\n  return <h1>Hello, world!</h1>;\n}"
+  },
+  {
+    "frage": "Was sind Props in React und wie werden sie verwendet?",
+    "antwort": "Props (Kurzform für Properties) sind unveränderliche Daten, die von einer Komponente an ihre Kinder übergeben werden. Sie werden verwendet, um Informationen und Callbacks zwischen Komponenten zu teilen. Props sind nur lesbar und sollten nicht direkt modifiziert werden.",
+    "beispielcode": "function Welcome(props) {\n  return <h1>Hello, {props.name}</h1>;\n}"
+  },
+  {
+    "frage": "Erkläre den State in React und seinen Zweck.",
+    "antwort": "State ist ein JavaScript-Objekt in einer React-Komponente, das Daten speichert, die sich im Laufe der Zeit ändern können. Der State wird verwendet, um die Komponente bei Änderungen neu zu rendern und interaktive und dynamische UIs zu erstellen.",
+    "beispielcode": "class StatefulComponent extends React.Component {\n  constructor(props) {\n    super(props);\n    this.state = { greeting: 'Hello, world!' };\n  }\n\n  render() {\n    return <h1>{this.state.greeting}</h1>;\n  }\n}"
+  },
+  {
+    "frage": "Was ist JSX und warum wird es in React verwendet?",
+    "antwort": "JSX ist eine Syntaxerweiterung für JavaScript, die eine HTML-ähnliche Syntax direkt in JavaScript ermöglicht. Es wird in React verwendet, um die Struktur der Benutzeroberfläche deklarativ zu beschreiben. JSX verbessert die Lesbarkeit und erleichtert das Schreiben von UI-Komponenten.",
+    "beispielcode": "const element = <h1>Hello, world!</h1>;"
+  },
+  {
+    "frage": "Wie funktioniert das Rendering in React?",
+    "antwort": "In React wird das UI-Rendering durch den Zustand und die Props der Komponenten gesteuert. Bei einer Änderung des Zustands oder der Props wird die Komponente (und ihre Kinder) neu gerendert. React aktualisiert effizient nur die Teile des DOMs, die sich geändert haben, durch den Vergleich mit seinem Virtual DOM.",
+    "beispielcode": "class RenderExample extends React.Component {\n  render() {\n    return <h1>Hello, {this.props.name}</h1>;\n  }\n}"
+  },
+  {
+    "frage": "Erkläre den Lebenszyklus eines React-Components.",
+    "antwort": "Der Lebenszyklus eines React-Components umfasst verschiedene Phasen: Initialisierung (Konstruktor), Mounting (componentDidMount), Updates (componentDidUpdate), und Unmounting (componentWillUnmount). Diese Methoden werden zu verschiedenen Zeitpunkten im Leben einer Komponente aufgerufen und ermöglichen die Ausführung von benutzerdefiniertem Code.",
+    "beispielcode": "class LifecycleExample extends React.Component {\n  componentDidMount() {\n    console.log('Komponente wurde eingehängt');\n  }\n\n  componentDidUpdate() {\n    console.log('Komponente wurde aktualisiert');\n  }\n\n  componentWillUnmount() {\n    console.log('Komponente wird demontiert');\n  }\n\n  render() {\n    return <h1>Hello, world!</h1>;\n  }\n}"
+  },
+  {
+    "frage": "Was sind Higher-Order Components (HOCs) in React?",
+    "antwort": "Higher-Order Components sind Funktionen, die eine Komponente als Argument nehmen und eine neue Komponente zurückgeben. Sie werden verwendet, um wiederverwendbare Logik über verschiedene Komponenten hinweg zu teilen, z.B. zur Fehlerbehandlung, Datenabruf, oder Zustandsmanagement.",
+    "beispielcode": "function withExtraInfo(WrappedComponent) {\n  return function(props) {\n    return (\n      <div>\n        <WrappedComponent {...props} />\n        <p>Zusätzliche Informationen hier.</p>\n      </div>\n    );\n  };\n}"
+  },
+  {
+    "frage": "Wie können Events in React gehandhabt werden?",
+    "antwort": "In React werden Events ähnlich wie in plain HTML gehandhabt, allerdings mit einigen Unterschieden: Event-Handler-Namen sind in CamelCase (z.B. `onClick`) und die Event-Handler sind Funktionen, die an das Event-Objekt gebunden sind. Event-Handler können in der Komponentenklasse definiert oder als Arrow-Funktionen direkt in JSX geschrieben werden.",
+    "beispielcode": "class EventHandlingComponent extends React.Component {\n  handleClick() {\n    console.log('Button wurde geklickt');\n  }\n\n  render() {\n    return <button onClick={this.handleClick}>Klicke mich</button>;\n  }\n}"
+  },
+  {
+    "frage": "Was ist React Hooks und welche Probleme lösen sie?",
+    "antwort": "React Hooks sind Funktionen, die es ermöglichen, Zustand und andere React-Features in Functional-Components zu nutzen. Sie lösen verschiedene Probleme: Sie machen den Code lesbarer und leichter zu verwalten, reduzieren den Bedarf an Class-Components und helfen, Logik zwischen Komponenten wiederverwendbar zu machen.",
+    "beispielcode": "import { useState } from 'react';\n\nfunction ExampleComponent() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div>\n      <p>Du hast {count} Mal geklickt.</p>\n      <button onClick={() => setCount(count + 1)}>\n        Klicke mich\n      </button>\n    </div>\n  );\n}"
+  },
+  {
+    "frage": "Erkläre die Verwendung von useEffect in React.",
+    "antwort": "useEffect ist ein Hook, der für Side-Effects in Functional-Components verwendet wird. Es wird nach dem Rendern der Komponente ausgeführt und kann für Datenabrufe, manuelle DOM-Updates und Ressourcenbereinigungen verwendet werden. Es ersetzt die Lebenszyklusmethoden componentDidMount, componentDidUpdate, und componentWillUnmount.",
+    "beispielcode": "import React, { useState, useEffect } from 'react';\n\nfunction Example() {\n  const [data, setData] = useState([]);\n\n  useEffect(() => {\n    fetchData().then(setData);\n  }, []);\n\n  // Render-Logik\n}"
+  },
+  {
+    "frage": "Was versteht man unter Conditional Rendering in React?",
+    "antwort": "Conditional Rendering in React bezieht sich auf die Darstellung von Komponenten basierend auf bestimmten Bedingungen. Es wird typischerweise mit JavaScript-Operatoren wie dem ternären Operator oder && erreicht, um Komponenten dynamisch basierend auf dem Zustand oder Props anzuzeigen oder zu verbergen.",
+    "beispielcode": "function Welcome({ isLoggedIn }) {\n  return <div>{isLoggedIn ? <LoggedInComponent /> : <LoggedOutComponent />}</div>;\n}"
+  },
+  {
+    "frage": "Wie werden Formulare in React behandelt?",
+    "antwort": "Formulare in React werden typischerweise als kontrollierte Komponenten behandelt, wobei der Formularzustand im State der Komponente gespeichert wird. Jedes Formularelement wie input und textarea hat einen value-Attribut, das an eine State-Variable gebunden ist, und einen onChange-Handler, um Updates des States zu verwalten.",
+    "beispielcode": "class MyForm extends React.Component {\n  state = { inputValue: '' };\n\n  handleChange = (event) => {\n    this.setState({ inputValue: event.target.value });\n  };\n\n  render() {\n    return (\n      <input\n        type='text'\n        value={this.state.inputValue}\n        onChange={this.handleChange}\n      />\n    );\n  }\n}"
+  },
+  {
+    "frage": "Erkläre die Verwendung von useState in React.",
+    "antwort": "useState ist ein Hook, der in Functional-Components verwendet wird, um den lokalen Zustand zu verwalten. Es gibt ein Array mit zwei Werten zurück: die aktuelle Zustandsvariable und eine Funktion, um diesen Zustand zu aktualisieren. Dieser Hook ermöglicht es Functional-Components, reaktive Daten zu verwalten, ohne eine Klasse zu sein.",
+    "beispielcode": "import { useState } from 'react';\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <div>\n      <p>{count}</p>\n      <button onClick={() => setCount(count + 1)}>Increment</button>\n    </div>\n  );\n}"
+  },
+  {
+    "frage": "Was sind die Schlüsselkonzepte von Redux in React?",
+    "antwort": "Redux ist eine Bibliothek für Zustandsmanagement in JavaScript-Anwendungen. Die Schlüsselkonzepte sind: ein einzelner, zentraler Store für den gesamten Anwendungszustand, reine Reducer-Funktionen, die den Zustand basierend auf Actions ändern, und ein unidirektionaler Datenfluss. Redux hilft dabei, den Zustand vorhersagbar und leichter zu verwalten.",
+    "beispielcode": "import { createStore } from 'redux';\n\nfunction reducer(state = 0, action) {\n  switch (action.type) {\n    case 'INCREMENT':\n      return state + 1;\n    default:\n      return state;\n  }\n}\n\nconst store = createStore(reducer);"
+  },
+  {
+    "frage": "Was ist der Unterschied zwischen einem Container- und einem Presentational-Component in React?",
+    "antwort": "Container-Komponenten sind in erster Linie mit der Funktionsweise der Anwendung beschäftigt, z.B. Datenhandling und State-Management. Presentational-Komponenten sind hingegen darauf fokussiert, wie die Dinge aussehen (UI, Styling). Diese Trennung erhöht die Wiederverwendbarkeit und Wartbarkeit der Komponenten.",
+    "beispielcode": "// Container-Komponente\nclass UserContainer extends React.Component {\n  // Logik für Datenabruf, State-Management\n}\n\n// Presentational-Komponente\nfunction UserProfile({ user }) {\n  // UI-Rendering für User-Profil\n}"
+  },
+  {
+    "frage": "Wie funktioniert das Routing in React?",
+    "antwort": "Das Routing in React wird üblicherweise mit der Bibliothek React Router umgesetzt. Sie ermöglicht es, verschiedene Ansichten (Komponenten) auf verschiedene Pfade abzubilden, so dass die Anwendung Single-Page bleibt, aber mehrere Seiten simuliert. React Router verwendet die Browser-History-API, um die URLs zu verwalten.",
+    "beispielcode": "import { BrowserRouter as Router, Route, Link } from 'react-router-dom';\n\n<Router>\n  <div>\n    <Link to='/'>Home</Link>\n    <Link to='/about'>About</Link>\n\n    <Route path='/' exact component={Home} />\n    <Route path='/about' component={About} />\n  </div>\n</Router>"
+  },
+  {
+    "frage": "Was sind Pure Components in React?",
+    "antwort": "Pure Components in React sind Komponenten, die von React.PureComponent erben. Sie optimieren die Performance, indem sie das Rerendering verhindern, wenn sich die Props oder der State der Komponente nicht geändert haben. Pure Components führen einen flachen Vergleich der Props und des States durch.",
+    "beispielcode": "class MyPureComponent extends React.PureComponent {\n  render() {\n    return <h1>{this.props.message}</h1>;\n  }\n}"
+  },
+  {
+    "frage": "Erkläre Context in React und seine Verwendung.",
+    "antwort": "Context in React ermöglicht es, Daten (wie Themes, Nutzerinformationen) über die Komponentenhierarchie hinweg zu teilen, ohne diese explizit durch Props weiterzureichen. Dies ist nützlich, um 'Prop Drilling' zu vermeiden, wenn viele Ebenen von Komponenten die gleichen Daten benötigen.",
+    "beispielcode": "const MyContext = React.createContext(defaultValue);\n\n<MyContext.Provider value={/* some value */}>\n  {/* Komponenten hier */}\n</MyContext.Provider>"
+  },
+  {
+    "frage": "Wie wird der Virtual DOM in React verwendet und was sind seine Vorteile?",
+    "antwort": "Der Virtual DOM ist eine leichte Kopie des echten DOMs. React verwendet ihn, um Änderungen effizient zu verwalten und zu minimieren. Beim Rendern erstellt React eine Virtual DOM-Repräsentation. Bei einer Änderung vergleicht es die neue Virtual DOM mit der vorherigen und aktualisiert nur die geänderten Teile im echten DOM.",
+    "beispielcode": "// Beispielcode ist hier nicht direkt anwendbar, da der Virtual DOM intern von React verwendet wird und nicht direkt im Benutzercode sichtbar ist."
+  },
+  {
+    "frage": "Erkläre den Einsatz von GraphQL in einer React-Anwendung.",
+    "antwort": "GraphQL ermöglicht effiziente Datenabfragen in React, indem nur benötigte Daten abgerufen werden. Statt mehrerer REST-Anfragen kannst du eine einzige GraphQL-Anfrage erstellen, die nur die gewünschten Felder enthält. Beispiel:",
+    "beispielcode": "const query = gql`\n  query GetUser($id: ID!) {\n    user(id: $id) {\n      id\n      name\n    }\n  }\n`;\n\nconst { loading, error, data } = useQuery(query, { variables: { id: '1' } });"
+  },
+  {
+    "frage": "Wie funktioniert das Management von Side-Effects in React mit Redux-Saga oder Redux-Thunk?",
+    "antwort": "Redux-Saga und Redux-Thunk helfen bei asynchronen Aktionen. Redux-Thunk ermöglicht es, asynchrone Aktionen als Funktionen zu definieren, die auf den Redux-Store zugreifen. Beispiel für Redux-Thunk:",
+    "beispielcode": "const fetchUser = (id) => async (dispatch) => {\n  dispatch({ type: 'FETCH_USER_REQUEST' });\n  try {\n    const response = await api.getUser(id);\n    dispatch({ type: 'FETCH_USER_SUCCESS', payload: response.data });\n  } catch (error) {\n    dispatch({ type: 'FETCH_USER_FAILURE', payload: error });\n  }\n};"
+  },
+  {
+    "frage": "Was sind die Unterschiede zwischen einer SPA und einer MPA in React?",
+    "antwort": "Eine Single Page Application (SPA) lädt eine einzige HTML-Seite und aktualisiert den Inhalt dynamisch, während der Benutzer durch die Anwendung navigiert. Eine Multi Page Application (MPA) besteht aus mehreren HTML-Seiten, jede mit ihrem eigenen Inhalt. SPAs bieten flüssigere Benutzererfahrung und verhindern Neuladen der Seite. Beispiel für SPA-Navigation:",
+    "beispielcode": "<Link to='/dashboard'>Dashboard</Link>"
+  },
+  {
+    "frage": "Wie kannst du die Zugänglichkeit (Accessibility) in einer React-Anwendung verbessern?",
+    "antwort": "Um die Zugänglichkeit zu verbessern, verwende semantisches HTML, füge ARIA-Attribute hinzu und teste auf Zugänglichkeit. Achte auf Tastaturbedienbarkeit und vermeide mausgesteuerte Interaktionen. Beispiel für ein barrierefreies Button-Element:",
+    "beispielcode": "<button aria-label='Öffnen'>Open</button>"
+  },
+  {
+    "frage": "Vor- und Nachteile von React gegenüber anderen Frontend-Frameworks?",
+    "antwort": "React hat eine große Community und bietet Virtual DOM für bessere Performance. Nachteile könnten eine steilere Lernkurve und die Notwendigkeit zusätzlicher Bibliotheken für einige Funktionen sein. Beispiel für die Verwendung von React:",
+    "beispielcode": "const element = <div>Hello, React!</div>;"
+  },
+  {
+    "frage": "Wie funktioniert der Einsatz von WebSockets in einer React-Anwendung?",
+    "antwort": "WebSockets ermöglichen Echtzeitkommunikation in React-Anwendungen. Du kannst die 'websocket' API verwenden oder Bibliotheken wie 'socket.io' einsetzen. Hier ist ein einfaches WebSocket-Beispiel:",
+    "beispielcode": "const socket = new WebSocket('wss://example.com');\n\nsocket.onmessage = (event) => {\n  const message = event.data;\n  // Verarbeite die Nachricht\n};"
+  },
+  {
+    "frage": "Beste Praktiken für State Management in großen React-Anwendungen?",
+    "antwort": "In großen React-Anwendungen ist Redux eine häufige Wahl für State Management. Du kannst den Zustand normalisieren, Selektoren verwenden, Middleware wie Redux-Saga oder Redux-Thunk für Nebeneffekte nutzen und die Logik aus den Komponenten herausziehen. Beispiel für eine Redux-Verbindung:",
+    "beispielcode": "const mapStateToProps = (state) => ({ user: selectUser(state) });\nconst mapDispatchToProps = { fetchUser };\nexport default connect(mapStateToProps, mapDispatchToProps)(UserProfile);"
+  },
+  {
+    "frage": "Integration von Drittanbieter-Bibliotheken in React?",
+    "antwort": "Die Integration von Drittanbieter-Bibliotheken in React erfolgt durch Installation und Import der Bibliothek. Hier ist ein Beispiel mit der Ant Design DatePicker-Komponente:",
+    "beispielcode": "import { DatePicker } from 'antd';\n\nfunction App() {\n  return (\n    <div>\n      <DatePicker />\n    </div>\n  );\n}"
+  },
+  {
+    "frage": "Prinzip der Komponententrennung in React?",
+    "antwort": "In React trennst du UI-Komponenten von Logik-Komponenten, um die Wiederverwendbarkeit zu verbessern. Hier ist ein Beispiel einer einfachen Counter-Komponente:",
+    "beispielcode": "function Counter() {\n  const [count, setCount] = useState(0);\n\n  const increment = () => {\n    setCount(count + 1);\n  };\n\n  return (\n    <div>\n      <p>Count: {count}</p>\n      <button onClick={increment}>Increment</button>\n    </div>\n  );\n}"
+  },
+  {
+    "frage": "Wie verwendest du React DevTools zur Fehlerbehebung und Performance-Analyse?",
+    "antwort": "Du kannst React DevTools installieren und verwenden, um Komponenten zu inspizieren und den Zustand zu überwachen. Hier ist ein Beispiel zur Integration der DevTools in deine App:",
+    "beispielcode": "npm install react-devtools\n\nimport React from 'react';\nimport { render } from 'react-dom';\nimport App from './App';\n\nrender(<App />, document.getElementById('root'));\n"
+  },
+  {
+    "frage": "Unterschied zwischen React-App und einer Progressive Web App (PWA)?",
+    "antwort": "Eine Progressive Web App (PWA) ist eine React-App, die zusätzliche Funktionen bietet, wie Offline-Unterstützung und ein App-Manifest. Du kannst ein Manifest hinzufügen, um deine React-App in eine PWA zu verwandeln. Beispiel für das Hinzufügen eines Manifests:",
+    "beispielcode": "<link rel='manifest' href='/manifest.json'>"
+  },
+  {
+    "frage": "Was sind Fragments in React?",
+    "antwort": "Fragments sind eine Möglichkeit, mehrere JSX-Elemente ohne ein übergeordnetes DOM-Element zu rendern. Sie helfen, den DOM-Baum sauber zu halten. Beispiel:",
+    "beispielcode": "<Fragment>\n  <p>Text 1</p>\n  <p>Text 2</p>\n</Fragment>"
+  },
+  {
+    "frage": "Wie optimierst du die Performance einer React-Anwendung?",
+    "antwort": "Performance-Optimierung in React beinhaltet Lazy Loading, Memoization, Code Splitting, Verwendung von shouldComponentUpdate oder React.memo und das Identifizieren von re-renderintensiven Komponenten.",
+    "beispielcode": ""
+  },
+  {
+    "frage": "Erkläre das Konzept der Immutability in React.",
+    "antwort": "Immutability bedeutet, dass der Zustand eines Objekts nicht direkt geändert wird. In React hilft es, unerwünschte Seiteneffekte zu verhindern. Beispiel:",
+    "beispielcode": "const newArray = [...oldArray, newItem];"
+  },
+  {
+    "frage": "Was sind die gängigen Methoden zur Datenübertragung zwischen Components in React?",
+    "antwort": "Daten zwischen React-Komponenten können durch Props (nach unten), Context API, Redux (globaler Zustand), oder über Callback-Funktionen (nach oben) übertragen werden.",
+    "beispielcode": ""
+  },
+  {
+    "frage": "Wie werden HTTP-Anfragen in React gehandhabt?",
+    "antwort": "HTTP-Anfragen in React werden mit Fetch API oder Bibliotheken wie Axios oder der Verwendung von 'axios' oder 'fetch' in 'useEffect' behandelt. Beispiel:",
+    "beispielcode": "fetch('https://api.example.com/data')\n  .then(response => response.json())\n  .then(data => console.log(data))\n  .catch(error => console.error(error));"
+  },
+  {
+    "frage": "Was ist React Fiber?",
+    "antwort": "React Fiber ist eine interne Reconciliation-Engine von React, die die Reihenfolge und Priorisierung von Re-Renderings steuert. Sie ermöglicht asynchrone Updates und verbessert die Performance.",
+    "beispielcode": ""
+  },
+  {
+    "frage": "Wie können Sie Memory Leaks in einer React-Anwendung vermeiden?",
+    "antwort": "Um Memory Leaks in React zu vermeiden, achte darauf, Event-Listener zu entfernen, keine unnötigen Referenzen zu behalten, useEffect mit Abhängigkeiten korrekt zu verwenden und sicherzustellen, dass Komponenten korrekt unmontiert werden.",
+    "beispielcode": ""
+  },
+  {
+    "frage": "Was sind die Unterschiede zwischen Controlled und Uncontrolled Components in React?",
+    "antwort": "Controlled Components haben ihren Zustand (Value) durch React gesteuert, während Uncontrolled Components ihren eigenen Zustand halten und von React unabhängig sind. Beispiel für Controlled Input:",
+    "beispielcode": "<input type='text' value={value} onChange={handleChange} />"
+  },
+  {
+    "frage": "Wie funktioniert Error Boundary in React?",
+    "antwort": "Error Boundary ist eine React-Komponente, die Fehler in ihren untergeordneten Komponenten abfängt. Sie ermöglicht es, Fehler elegant zu behandeln und eine bessere Benutzererfahrung zu bieten. Beispiel:",
+    "beispielcode": "class ErrorBoundary extends React.Component {\n  componentDidCatch(error, errorInfo) {\n    // Handle the error\n  }\n\n  render() {\n    return this.props.children;\n  }\n}"
+  },
+  {
+    "frage": "Was ist der Unterschied zwischen React Native und React?",
+    "antwort": "React ist ein JavaScript-Framework für Webanwendungen, während React Native eine Plattform zur Entwicklung nativer mobiler Anwendungen für iOS und Android mit React ist. Beide verwenden jedoch eine ähnliche Komponentenarchitektur.",
+    "beispielcode": ""
+  },
+  {
+    "frage": "Erkläre den Unterschied zwischen setState und useState in React.",
+    "antwort": "setState ist eine Methode in Klassenkomponenten, um den Zustand zu aktualisieren, während useState ein Hook in funktionalen Komponenten ist. Beispiel für useState:",
+    "beispielcode": "const [count, setCount] = useState(0);"
+  },
+  {
+    "frage": "Wie integrierst du CSS-Stile in eine React-Anwendung?",
+    "antwort": "Du kannst CSS-Dateien importieren, CSS-in-JS-Bibliotheken wie styled-components verwenden oder CSS-Module verwenden, um Styles in React zu integrieren. Beispiel mit styled-components:",
+    "beispielcode": "import styled from 'styled-components';\n\nconst Button = styled.button`\n  background-color: blue;\n  color: white;\n`;"
+  },
+  {
+    "frage": "Was sind die Vorteile von serverseitigem Rendering in React?",
+    "antwort": "Serverseitiges Rendern (SSR) verbessert die SEO, initialen Ladezeiten und ermöglicht das Rendern auf Servern, bevor die Anwendung an den Client gesendet wird.",
+    "beispielcode": ""
+  },
+  {
+    "frage": "Wie funktioniert das Zustandsmanagement in React ohne Redux?",
+    "antwort": "Du kannst Zustandshooks wie useState oder useContext verwenden, um Zustand in funktionalen Komponenten zu verwalten. Beispiel für useState:",
+    "beispielcode": "const [count, setCount] = useState(0);"
+  },
+  {
+    "frage": "Was sind die gängigen Performance-Probleme in React-Anwendungen und wie löst man sie?",
+    "antwort": "Performance-Probleme in React können durch Code Splitting, Memoization, Lazy Loading, Virtualisierung und Optimierung von Render-Wegen gelöst werden.",
+    "beispielcode": ""
+  },
+  {
+    "frage": "Wie verwendest du Refs in React?",
+    "antwort": "Refs ermöglichen den direkten Zugriff auf DOM-Elemente oder React-Komponenten. Sie werden mit useRef oder als Objekt erstellt und mit dem ref-Attribut verwendet. Beispiel für das Erstellen einer Ref:",
+    "beispielcode": "const myRef = useRef();"
+  },
+  {
+    "frage": "Was sind PropTypes in React und warum sind sie wichtig?",
+    "antwort": "PropTypes sind eine Möglichkeit, die erwarteten Prop-Typen einer Komponente zu deklarieren und zu überprüfen. Sie helfen bei der Dokumentation und Fehlererkennung. Beispiel:",
+    "beispielcode": "import PropTypes from 'prop-types';\n\nfunction MyComponent(props) {\n  // ...\n}\n\nMyComponent.propTypes = {\n  name: PropTypes.string.isRequired,\n  age: PropTypes.number,\n};"
+  },
+  {
+    "frage": "Erkläre den Unterschied zwischen Imperativem und Deklarativem Programmieren in React.",
+    "antwort": "Imperatives Programmieren beschreibt, wie Dinge getan werden sollen (Schritte), während deklaratives Programmieren beschreibt, was erreicht werden soll (Ziel). React fördert deklaratives Programmieren, wobei JSX eine deklarative Sprache ist.",
+    "beispielcode": ""
+  },
+  {
+    "frage": "Wie verwendest du den React Router für die Navigation?",
+    "antwort": "Der React Router ermöglicht die Navigation in React-Anwendungen. Du definierst Routen und verwendest Komponenten wie 'Route' und 'Link'. Beispiel für eine einfache Route:",
+    "beispielcode": "<Route path='/dashboard' component={Dashboard} />"
+  },
+  {
+    "frage": "Was sind die Best Practices für die Ordnerstruktur einer React-Anwendung?",
+    "antwort": "Gute Praktiken umfassen die Trennung von Komponenten, Assets und Styles in eigene Verzeichnisse, das Verwenden von Containern für Logik und die Verwendung von Feature-basierten Ordnern.",
+    "beispielcode": ""
+  },
+  {
+    "frage": "Erkläre den Unterschied zwischen React und Angular.",
+    "antwort": "React ist eine JavaScript-Bibliothek für UI-Komponenten, während Angular ein vollständiges JavaScript-Framework ist. React verwendet JSX und ist flexibler, während Angular mehr Funktionen und Konventionen bietet.",
+    "beispielcode": ""
+  },
+  {
+    "frage": "Was ist Code Splitting in React und wie wird es umgesetzt?",
+    "antwort": "Code Splitting ist eine Technik, um den JavaScript-Code in kleinere Teile zu teilen, die bei Bedarf geladen werden. In React kannst du 'React.lazy()' oder 'import()' verwenden, um Code Splitting umzusetzen. Beispiel mit 'React.lazy()':",
+    "beispielcode": "const MyComponent = React.lazy(() => import('./MyComponent'));"
+  },
+  {
+    "frage": "Wie testest du eine React-Anwendung?",
+    "antwort": "React-Anwendungen können mit Testframeworks wie Jest und Testing-Libraries wie '@testing-library/react' getestet werden. Du kannst Komponententests, Snapshot-Tests und Integrationstests durchführen.",
+    "beispielcode": ""
+  },
+  {
+    "frage": "Was sind die Vorteile der Verwendung von TypeScript in React?",
+    "antwort": "TypeScript bietet statische Typisierung, verbesserte Code-Qualität, bessere IntelliSense-Unterstützung und frühzeitige Fehlererkennung. Dies erhöht die Entwicklungsqualität und -geschwindigkeit.",
+    "beispielcode": ""
+  },
+  {
+    "frage": "Wie funktioniert das Batching von Updates in React?",
+    "antwort": "React gruppiert mehrere setState-Aufrufe zu einem einzigen Update, um die Performance zu verbessern. Dies wird durch die interne Batching-Mechanik von React automatisch durchgeführt.",
+    "beispielcode": ""
+  },
+  {
+    "frage": "Was ist React Suspense und wie wird es verwendet?",
+    "antwort": "React Suspense ist ein Mechanismus zur Behandlung von asynchronen Ladevorgängen in React. Du kannst 'Suspense' verwenden, um das Warten auf Daten oder Ressourcen zu verwalten. Beispiel:",
+    "beispielcode": "<Suspense fallback={<LoadingSpinner />}>{/* ... */}</Suspense>"
+  },
+  {
+    "frage": "Wie verwendest du Hooks, um globale Zustände in einer React-Anwendung zu verwalten?",
+    "antwort": "Du kannst den 'useContext' Hook verwenden, um globalen Zustand zu verwalten, indem du einen 'Context'-Provider erstellst. Dies ermöglicht den Zugriff auf den Zustand in verschiedenen Komponenten.",
+    "beispielcode": ""
+  },
+  {
+    "frage": "Erkläre die Verwendung von useMemo in React.",
+    "antwort": "Der 'useMemo' Hook wird verwendet, um die memoisierte Version eines Wertes oder einer Berechnung zurückzugeben. Dadurch können teure Berechnungen vermieden werden, wenn sich die Abhängigkeiten nicht ändern. Beispiel:",
+    "beispielcode": "const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);"
+  },
+  {
+    "frage": "Was ist der Zweck von React.Children und wie wird es verwendet?",
+    "antwort": "React.Children ist eine Utility-Funktion, um mit den Kindern einer React-Komponente zu arbeiten. Sie ermöglicht das Durchlaufen und Manipulieren der Kinder, auch wenn es sich um eine einzelne Komponente oder ein Array handelt.",
+    "beispielcode": ""
+  },
+  {
+    "frage": "Wie funktioniert die Komponenten-Komposition in React?",
+    "antwort": "Komponenten-Komposition ist das Prinzip, mehrere kleinere Komponenten zu verwenden, um größere und komplexere Komponenten zu erstellen. Dies verbessert die Wiederverwendbarkeit und Lesbarkeit des Codes in React.",
+    "beispielcode": ""
+  }
+]
